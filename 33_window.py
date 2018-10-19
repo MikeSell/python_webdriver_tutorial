@@ -9,6 +9,3 @@ time.sleep(1)
 driver.back()
 time.sleep(1)
 driver.close()
-
-
-
