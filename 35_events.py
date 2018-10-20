@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
 
 class MyListener(AbstractEventListener):
