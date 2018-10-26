@@ -4,7 +4,8 @@
 
 1. Go to python.org home page
 2. Hover the mouse over the Documentation link
-3. Verify that Python 3 Docs button is present, clickable and redirects to correct page
+3. Verify that Python 3 Docs button is present
+4. Click on it and verify that we are redirected to correct page
 
 ### TC002: Search - no results found 
 
