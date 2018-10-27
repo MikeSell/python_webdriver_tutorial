@@ -28,12 +28,12 @@ class TestHome(TestPyOrgBase):
 
     def test_TC001_py3_doc_button(self):
         self.home.hover_to(CommonPageLocators.DOC)
-        self.home.assert_elem_text(CommonPageLocators.PY3_DOC_BUTTON, "Python 3.x Docs")
+        self.home.assert_elem_text(CommonPageLocators.PY3_DOC_BUTTON, 'Python 3.x Docs')
         self.home.click(CommonPageLocators.PY3_DOC_BUTTON)
-        assert self.home.driver.current_url == 'https://docs.python.org/3/'
+        assert self.driver.current_url == 'https://docs.python.org/3/'
 
-    def test_TC002_pass_mismatch_message(self):
-        self.home.search_for("blahblah")
+    def test_TC002_blahblah_search(self):
+        self.home.search_for('blahblah')
         self.home.assert_elem_text(CommonPageLocators.SEARCH_RESULT_LIST, 'No results found.')
 
 class TestAbout(TestPyOrgBase):
@@ -45,7 +45,7 @@ class TestAbout(TestPyOrgBase):
         self.about = AboutPage(self.driver)
 
     def test_TC003_verify_upcoming_events_section_present(self):
-        self.about.assert_elem_text(AboutPageLocators.UPCOMING_EVENTS, "Upcoming Events")
+        self.about.assert_elem_text(AboutPageLocators.UPCOMING_EVENTS, 'Upcoming Events')
 
 if __name__ == '__main__':
     unittest.main()

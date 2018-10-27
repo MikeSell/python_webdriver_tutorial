@@ -8,4 +8,5 @@ class CommonPageLocators:
     SEARCH_RESULT_LIST = (By.XPATH, "//h3[text()='Results']/following-sibling::ul")
 
 class AboutPageLocators:
-    UPCOMING_EVENTS = (By.CSS_SELECTOR, "#content > div > section > div.list-widgets.row > div.medium-widget.event-widget.last > div > h2")
+    UPCOMING_EVENTS = (By.CSS_SELECTOR, '#content > div > section > div.list-widgets.row > div.medium-widget.event-widget.last > div > h2')
+    
