@@ -1,13 +1,11 @@
-def fib(size):
+def fib():
    a, b = 0, 1
-   count = 0
-   while count < size:
+   while True:
       yield b
       a, b = b, a + b
-      count += 1
 
-f = fib(15)
+f = fib()
 print(type(f))
-for i in f:
-    print(i, end=' ')
+for i in range(20):
+    print(next(f), end=' ')
 print()
