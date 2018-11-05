@@ -38,9 +38,15 @@ class TestHome(TestPyOrgBase):
         self.home.search_for('blahblah')
         self.home.assert_elem_text(CommonPageLocators.SEARCH_RESULT_LIST, 'No results found.')
 
-    @unittest.skip
+    # @unittest.skip
     def test_TC004_assert_title(self):
         self.assertEqual(self.home.driver.title, 'Welcome to Python.org')
+
+    def test_TC006_main_menu(self):
+        mm = ['about', 'downloads', 'documentation', 'community', 'success-stories', 'news', 'events', 'DUMMY']
+        for mmenu_item in mm:
+            with self.subTest("asserting menu item: {}".format(mmenu_item)):
+                assert self.home.driver.find_element_by_id(mmenu_item)
 
 class TestAbout(TestPyOrgBase):
     """

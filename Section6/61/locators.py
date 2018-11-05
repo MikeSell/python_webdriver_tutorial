@@ -6,6 +6,7 @@ class CommonPageLocators:
     DOC = (By.ID, "documentation")
     PY3_DOC_BUTTON = (By.CSS_SELECTOR, "#documentation > ul > li.tier-2.super-navigation > p.download-buttons > a:nth-child(1)")
     SEARCH_RESULT_LIST = (By.XPATH, "//h3[text()='Results']/following-sibling::ul")
+    MAIN_MENU = (By.ID, "mainnav")
 
 class AboutPageLocators:
     UPCOMING_EVENTS = (By.CSS_SELECTOR, '#content > div > section > div.list-widgets.row > div.medium-widget.event-widget.last > div > h2')
