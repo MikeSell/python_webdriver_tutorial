@@ -16,4 +16,4 @@ def suite():
 if __name__ == '__main__':
     runner = unittest.TextTestRunner(verbosity=2)
     suite = suite()
-    runner.run (suite)
+    runner.run(suite)
