@@ -10,10 +10,11 @@ class TestPyOrgBase(unittest.TestCase):
     TBD
     """
     def setUp(self):
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument('headless')
-        chrome_options.add_argument('window-size=1920x1080')
-        self.driver = webdriver.Chrome(options=chrome_options)
+        opts = webdriver.ChromeOptions()
+        opts.add_argument('headless')
+        opts.add_argument('window-size=1920x1080')
+        self.driver = webdriver.Remote(command_executor = 'http://192.168.122.60:4444/wd/hub', 
+                                    desired_capabilities = opts.to_capabilities())
 
     def tearDown(self):
         self.driver.close()
