@@ -40,16 +40,24 @@ drv_firefox = webdriver.Remote(
    command_executor='http://192.168.122.60:4444/wd/hub',
    desired_capabilities={'browserName': 'firefox', 'javascriptEnabled': True})
 
+#### headless and custom options for geckodriver
+opts = webdriver.FirefoxOptions()
+opts.add_argument('headless')
+opts.add_argument('window-size=1920x1080')
+capabilities = {'browserName': 'firefox', 'javascriptEnabled': True}
+capabilities.update(opts.to_capabilities())
+drv_frfx = webdriver.Remote(command_executor = 'http://192.168.122.60:4444/wd/hub', desired_capabilities = capabilities)
+
 ### Chrome and chromedriver
 
 drv_chrome = webdriver.Remote(
    command_executor='http://192.168.122.60:4444/wd/hub',
    desired_capabilities={'browserName': 'chrome', 'javascriptEnabled': True})
 
-#### headless and custom options 
+#### headless and custom options for chromedriver
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('headless')
 chrome_options.add_argument('window-size=1920x1080')
 capabilities = {'browserName': 'chrome', 'javascriptEnabled': True}
 capabilities.update(chrome_options.to_capabilities())
-drv_chrome = webdriver.Remote(command_executor='http://192.168.122.60:4444/wd/hub', capabilities)
+drv_chrome = webdriver.Remote(command_executor = 'http://192.168.122.60:4444/wd/hub', desired_capabilities = capabilities)
