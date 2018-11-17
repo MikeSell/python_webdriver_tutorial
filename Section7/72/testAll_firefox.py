@@ -11,12 +11,14 @@ class TestPyOrgBase(unittest.TestCase):
     """
     def setUp(self):
         opts = webdriver.FirefoxOptions()
-        opts.add_argument('headless')
-        self.driver = webdriver.Remote(command_executor = 'http://localhost:4444/wd/hub', 
+        opts.set_headless()
+        # self.driver = webdriver.Remote(command_executor = 'http://localhost:4444/wd/hub', 
+        self.driver = webdriver.Remote(command_executor = 'http://192.168.122.60:4444/wd/hub', 
                                     desired_capabilities = opts.to_capabilities())
 
     def tearDown(self):
-        self.driver.close()
+        self.driver.quit()
+        self.driver.stop_client()
 
 class TestHome(TestPyOrgBase):
     """
