@@ -6,7 +6,7 @@ Limitation: unittest doesn't give a lot of options, we need to write our own rep
 
 ## [HTMLTestRunner](http://tungwaiyip.info/software/HTMLTestRunner.html)
 
-3rd party code 
+3rd party code, python2 compatible 
 
 ## pytest-html
 
