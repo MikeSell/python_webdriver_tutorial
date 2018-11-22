@@ -10,7 +10,11 @@ Username : Admin | Password : admin123
 
 | TCID | TC Name | Description | 
 | --- | --- | --- | 
-| TC_L_001 <a name="TC_L_001"></a> | Login page loaded | Checking if the key elements on the page are loaded. Login fields and login button. | 
+| [TC_L_001](#TC_L_001) | Login page loaded | Checking if the key elements on the page are loaded. Login fields and login button. | 
+| [TC_L_002](#TC_L_002) | Successful login | Using correct username and pass and verifying succseful login. |  
+| [TC_L_003](#TC_L_003) | Failed login | Using incorrect password and verifying the error message for failed login. |  
+
+---
 
 
 | TCID | TC Name | Description | 
