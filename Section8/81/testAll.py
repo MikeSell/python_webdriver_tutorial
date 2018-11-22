@@ -23,7 +23,7 @@ class TestLogin(TestPyOrgBase):
     """
     def setUp(self):
         super().setUp()
-        self.home = LoginPage(self.driver)
+        self.login = LoginPage(self.driver)
 
     def test_TC_L_001(self):
         pass

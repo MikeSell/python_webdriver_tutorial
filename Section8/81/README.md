@@ -61,7 +61,6 @@ Steps:
   1. Enter user name Admin in the username field
   2. Enter passerod password in password field 
   3. Verify the correct message is displayed  
-  4. Verify login fields are reset  
 Expected results: >
     All test steps passed as excepted. 
 ```
