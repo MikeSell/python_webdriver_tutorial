@@ -32,6 +32,10 @@ class BasePage:
     def get_elem(self, by_locator, waitfor=20):
         return  WebDriverWait(self.driver, waitfor).until(EC.visibility_of_element_located(by_locator))
 
+    def choose(self, drop_down_sel, value):
+        ddm = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(drop_down_sel))
+        ddm.find_element_by_css_selector("[value='{}']".format(value)).click()
+
 class LoginPage(BasePage):
     """
     Login page of OHRM

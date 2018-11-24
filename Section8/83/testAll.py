@@ -60,6 +60,9 @@ class TestAdmin(TestPyOrgBase):
         cls.page = cls.login
 
     def test_TC_A_001(self):
+        """
+        Add new job title | Navigating to Admin > Job > Job Titles and fill in the form to add new job title.
+        """
         job_title = 'QA automation developer'
         job_description = 'Automating tests in Python and Selenium Webdriver.'
         self.page.hover_to(CommonPageLocators.ADMIN)
@@ -72,9 +75,21 @@ class TestAdmin(TestPyOrgBase):
         table = self.page.get_elem(AdminPageLocators.JOB_TITLE_TABLE)
         assert job_title in table.get_attribute('innerHTML')
 
-
     def test_TC_A_002(self):
-        pass
+        """
+        Add new work shift | Navigating to Admin > Job > Work Shifts and add new work shift.
+        """
+        shift_title = 'QA short shift'
+        shift_end = '13:00'
+        self.page.hover_to(CommonPageLocators.ADMIN)
+        self.page.hover_to(AdminPageLocators.JOB)
+        self.page.click(AdminPageLocators.JOB_WORKSHIFT)
+        self.page.click(AdminPageLocators.JOB_WORKSHIFT_ADD_BTN)
+        self.page.send_text(AdminPageLocators.JOB_WORKSHIFT_NAME, shift_title)
+        self.page.choose(AdminPageLocators.JOB_WORKSHIFT_TO_HOUR, shift_end)
+        self.page.click(AdminPageLocators.JOB_WORKSHIFT_SAVE_BTN)
+        table = self.page.get_elem(AdminPageLocators.JOB_WORKSHIFT_TABLE)
+        assert shift_title in table.get_attribute('innerHTML')
 
     @classmethod
     def tearDownClass(cls):

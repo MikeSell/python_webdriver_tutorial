@@ -4,18 +4,18 @@ Example web app: https://opensource-demo.orangehrmlive.com
 
 ## TC (Test Case) definitions 
 
-### Login TCs
-
-Username : Admin | Password : admin123
-
 | TCID | TC Name | Description | 
 | --- | --- | --- | 
 | [TC_L_001](#TC_L_001) | Login page loaded | Checking if the key elements on the page are loaded. Login fields and login button. | 
 | [TC_L_002](#TC_L_002) | Successful login | Using correct username and pass and verifying succseful login. |  
 | [TC_L_003](#TC_L_003) | Failed login | Using incorrect password and verifying the error message for failed login. |
 | [TC_A_001](#TC_A_001) | Add new job title | Navigating to Admin > Job > Job Titles and fill in the form to add new job title. |  
-
+| [TC_A_002](#TC_A_002) | Add new work shift | Navigating to Admin > Job > Work Shifts and add new work shift. |  
 ---
+
+### Login TCs
+
+Username : Admin | Password : admin123
 
 
 | TCID | TC Name | Description | 
@@ -88,4 +88,23 @@ Steps:
 Expected results: >
     All test steps passed as excepted. 
 ```
+
+| TCID | TC Name | Description | 
+| --- | --- | --- | 
+| TC_A_002 <a name="TC_A_002"></a> | Add new work shift | Navigating to Admin > Job > Work Shifts and add new work shift. |  
+
+```yaml
+Preconditions:
+  - Login succesful
+Steps:
+  1. Navigate to Admin > Job > Work Shifts
+  2. Click on the button Add 
+  3. Enter as shift title: QA short shift
+  4. From work hours select from 9:00 to 13:00  
+  5. Click on button Save
+  6. Verify that new job title with description is on the list 
+Expected results: >
+    All test steps passed as excepted. 
+```
+
 
