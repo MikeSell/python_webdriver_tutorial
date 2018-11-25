@@ -1,6 +1,7 @@
 import unittest
 from testAll import TestLogin
 
+
 def suite():
     suite = unittest.TestSuite()
     # Login page tests
@@ -8,6 +9,7 @@ def suite():
     suite.addTest(TestLogin('test_TC_L_002'))
     suite.addTest(TestLogin('test_TC_L_003'))
     return suite
+
 
 if __name__ == '__main__':
     runner = unittest.TextTestRunner(verbosity=2)

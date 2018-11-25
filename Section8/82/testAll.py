@@ -4,7 +4,8 @@ from page import LoginPage
 from locators import CommonPageLocators
 from locators import LoginPageLocators
 
-class TestPyOrgBase(unittest.TestCase):
+
+class TestHRMBase(unittest.TestCase):
     """
     TBD
     """
@@ -14,10 +15,12 @@ class TestPyOrgBase(unittest.TestCase):
         chrome_options.add_argument('window-size=1920x1080')
         self.driver = webdriver.Chrome(options=chrome_options)
 
-    def tearDown(self):
-        self.driver.close()
 
-class TestLogin(TestPyOrgBase):
+    def tearDown(self):
+        self.driver.quit()
+
+
+class TestLogin(TestHRMBase):
     """
     TBD
     """
@@ -25,10 +28,11 @@ class TestLogin(TestPyOrgBase):
         super().setUp()
         self.login = LoginPage(self.driver)
 
+
     def test_TC_L_001(self):
         self.login.assert_elem_text(LoginPageLocators.LOGIN_PANEL, 'LOGIN Panel')
-        usr_name_input = self.login.driver.find_element(*LoginPageLocators.USERNAME)
-        self.assertEqual(usr_name_input.tag_name, 'input')
+        user_name_input = self.login.driver.find_element(*LoginPageLocators.USERNAME)
+        self.assertEqual(user_name_input.tag_name, 'input')
         password_input = self.login.driver.find_element(*LoginPageLocators.PASSWORD)
         self.assertEqual(password_input.tag_name, 'input')
         self.login.is_clickable(LoginPageLocators.LOGIN_BUTTON)
@@ -41,11 +45,13 @@ class TestLogin(TestPyOrgBase):
         self.assertTrue('dashboard' in self.login.driver.current_url)
         self.assertTrue('<h1>Dashboard</h1>' in self.login.driver.page_source)
 
+
     def test_TC_L_003(self):
         self.login.send_text(LoginPageLocators.USERNAME, self.login.default_username)
         self.login.send_text(LoginPageLocators.PASSWORD, 'password')
         self.login.click(LoginPageLocators.LOGIN_BUTTON)
         self.login.assert_elem_text(LoginPageLocators.SPAN_MSG, 'Invalid credentials')
+
 
 
 if __name__ == '__main__':
