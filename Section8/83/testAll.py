@@ -6,7 +6,7 @@ from locators import LoginPageLocators
 from locators import AdminPageLocators
 
 
-class TestPyOrgBase(unittest.TestCase):
+class TestHRMBase(unittest.TestCase):
     """
     TBD
     """
@@ -16,10 +16,12 @@ class TestPyOrgBase(unittest.TestCase):
         chrome_options.add_argument('window-size=1920x1080')
         self.driver = webdriver.Chrome(options=chrome_options)
 
-    def tearDown(self):
-        self.driver.close()
 
-class TestLogin(TestPyOrgBase):
+    def tearDown(self):
+        self.driver.quit()
+
+
+class TestLogin(TestHRMBase):
     """
     TBD
     """
@@ -27,10 +29,11 @@ class TestLogin(TestPyOrgBase):
         super().setUp()
         self.login = LoginPage(self.driver)
 
+
     def test_TC_L_001(self):
         self.login.assert_elem_text(LoginPageLocators.LOGIN_PANEL, 'LOGIN Panel')
-        usr_name_input = self.login.driver.find_element(*LoginPageLocators.USERNAME)
-        self.assertEqual(usr_name_input.tag_name, 'input')
+        user_name_input = self.login.driver.find_element(*LoginPageLocators.USERNAME)
+        self.assertEqual(user_name_input.tag_name, 'input')
         password_input = self.login.driver.find_element(*LoginPageLocators.PASSWORD)
         self.assertEqual(password_input.tag_name, 'input')
         self.login.is_clickable(LoginPageLocators.LOGIN_BUTTON)
@@ -43,6 +46,7 @@ class TestLogin(TestPyOrgBase):
         self.assertTrue('dashboard' in self.login.driver.current_url)
         self.assertTrue('<h1>Dashboard</h1>' in self.login.driver.page_source)
 
+
     def test_TC_L_003(self):
         self.login.send_text(LoginPageLocators.USERNAME, self.login.default_username)
         self.login.send_text(LoginPageLocators.PASSWORD, 'password')
@@ -50,7 +54,8 @@ class TestLogin(TestPyOrgBase):
         self.login.assert_elem_text(LoginPageLocators.SPAN_MSG, 'Invalid credentials')
 
 
-class TestAdmin(TestPyOrgBase):
+class TestAdmin(TestHRMBase):
+
 
     @classmethod
     def setUpClass(cls):
@@ -58,6 +63,7 @@ class TestAdmin(TestPyOrgBase):
         cls.login = LoginPage(cls.driver)
         cls.login.login()
         cls.page = cls.login
+
 
     def test_TC_A_001(self):
         """
@@ -75,6 +81,7 @@ class TestAdmin(TestPyOrgBase):
         table = self.page.get_elem(AdminPageLocators.JOB_TITLE_TABLE)
         assert job_title in table.get_attribute('innerHTML')
 
+
     def test_TC_A_002(self):
         """
         Add new work shift | Navigating to Admin > Job > Work Shifts and add new work shift.
@@ -90,6 +97,7 @@ class TestAdmin(TestPyOrgBase):
         self.page.click(AdminPageLocators.JOB_WORKSHIFT_SAVE_BTN)
         table = self.page.get_elem(AdminPageLocators.JOB_WORKSHIFT_TABLE)
         assert shift_title in table.get_attribute('innerHTML')
+
 
     @classmethod
     def tearDownClass(cls):

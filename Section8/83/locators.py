@@ -1,14 +1,17 @@
 from selenium.webdriver.common.by import By
 
+
 class CommonPageLocators:
     ADMIN = (By.ID, 'menu_admin_viewAdminModule')
 
+
 class LoginPageLocators:
+    LOGIN_PANEL = (By.ID, 'logInPanelHeading')
     USERNAME = (By.ID, 'txtUsername')
     PASSWORD = (By.ID, 'txtPassword')
     LOGIN_BUTTON = (By.ID, 'btnLogin')
-    LOGIN_PANEL = (By.ID, 'logInPanelHeading')
     SPAN_MSG = (By.ID, 'spanMessage')
+
 
 class AdminPageLocators:
     JOB = (By.ID, 'menu_admin_Job')
@@ -24,5 +27,3 @@ class AdminPageLocators:
     JOB_WORKSHIFT_TO_HOUR = (By.ID, 'workShift_workHours_to')
     JOB_WORKSHIFT_SAVE_BTN = (By.ID, 'btnSave')
     JOB_WORKSHIFT_TABLE = (By.ID, 'resultTable')
-
-
